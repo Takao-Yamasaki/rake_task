@@ -8,12 +8,12 @@ class User < ApplicationRecord
                 address: row["address"]
             }
         end
-        puts "インポート処理を開始"
+        puts "インポート処理を開始".red
         begin
             User.create!(list)
-            puts "インポート完了"
+            puts "インポートに成功しました".green
         rescue ActiveModel::UnknownAttributeError => invalid
-            puts "インポート失敗 :UnknownAttributeError"
+            puts "インポート失敗 :#{invalid}".red
         end
      end
 end
